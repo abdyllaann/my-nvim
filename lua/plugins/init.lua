@@ -13,23 +13,31 @@ return {
     end,
   },
   {
-        "jwalton512/vim-blade",
-        lazy = false,
-    }, 
-  { 
-    'IogaMaster/neocord',
-    event = "VeryLazy",
-    config = function ()
-      require "configs.discord"
-    end
+    "jwalton512/vim-blade",
+    lazy = false,
   },
   {
-  "shellRaining/hlchunk.nvim",
-  event = { "BufReadPre", "BufNewFile" },
-  config = function()
-      require "configs.chunk"
-  end
+    "IogaMaster/neocord",
+    event = "VeryLazy",
+    config = function()
+      require "configs.discord"
+    end,
   },
+  {
+    "shellRaining/hlchunk.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+    config = function()
+      require "configs.chunk"
+    end,
+  },
+  -- {
+  --   "Pocco81/auto-save.nvim",
+  --   event = "InsertLeave",
+  --   config = function()
+  --     require "configs.auto-save" -- Pastikan file ini ada
+  --   end,
+  -- },
+
   -- {
   --   "williamboman/mason.nvim",
   --   opts ={
@@ -47,9 +55,9 @@ return {
     event = "VeryLazy", -- Or `LspAttach`
     priority = 1000, -- needs to be loaded in first
     config = function()
-       require "configs.inline-diagnostics"
-    end
-},
+      require "configs.inline-diagnostics"
+    end,
+  },
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
@@ -58,11 +66,11 @@ return {
         opts = {},
       },
     },
-    opts = function (_,opts)
-      opts.sources[1].trigger_chars = {"-"}
-      table.insert(opts.sources, 1, {name = "supermaven"})
-    end
-  }
+    opts = function(_, opts)
+      opts.sources[1].trigger_chars = { "-" }
+      table.insert(opts.sources, 1, { name = "supermaven" })
+    end,
+  },
   -- {
   -- 	"nvim-treesitter/nvim-treesitter",
   -- 	opts = {
